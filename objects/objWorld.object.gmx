@@ -198,6 +198,8 @@ if (global.gameStarted)
     {
         if (scrButtonCheckPressed(global.restartButton))
         {
+        if (instance_exists(objResampleModeXD))
+        surface_free(objResampleModeXD.surf);
             //stop death sound/music
             audio_stop_sound(global.deathSound);
             audio_stop_sound(global.gameOverMusic);

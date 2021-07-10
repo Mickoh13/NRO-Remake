@@ -1,5 +1,5 @@
 ///sets configurable global options
-
+global.tStart = 0; //start time
 global.debugMode = false;       //enables debug keys (check objWorld step to see all of them), make sure to set this to "false" before releasing your game
 global.debugVisuals = true;    //enables changing the color/alpha of player when infjump/god mode are toggled, make sure to disable this if you want to change the player's image_alpha or image_blend
 global.debugOverlay = false;    //enables showing the debug text overlay (shows player location, align, etc.)
@@ -11,9 +11,9 @@ global.roomCaptionDef = "Neuro Rock-Out Remake (To be imported)";  //sets defaul
 global.roomCaptionLast = global.roomCaptionDef;
 window_set_caption(global.roomCaptionDef);
 
-global.md5StrAdd = "Put something here";  //sets what to add to the end of md5 input string to make the save harder to mess with, can be changed to anything, should be set to something unique and hard to predict (like setting a password)
+global.md5StrAdd = "Nigger";  //sets what to add to the end of md5 input string to make the save harder to mess with, can be changed to anything, should be set to something unique and hard to predict (like setting a password)
 
-global.startRoom = rSampleRoom;    //sets which room to begin with
+global.startRoom = rNeuroRockOut;    //sets which room to begin with
 
 global.menuMode = 1;            //sets whether to use a warp room or a menu for selecting the game's difficulty (0 = warp room, 1 = menu)
 global.menuSound = sndJump;     //sets what sound to use for navigating the main menu

@@ -9,6 +9,9 @@ switch (room)                       //determines which song to play
     case rOptions:
         roomSong = -1;
         break;                      //make sure to always put a break after setting the song
+    case rNeuroRockOut:
+        roomSong = -2;
+        break;
     default:                        //default option in case the room does not have a song set
         roomSong = -1;
         break;

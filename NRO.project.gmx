@@ -321,10 +321,18 @@
       <sprite>sprites\sprSecretItem</sprite>
       <sprite>sprites\sprBossItem</sprite>
     </sprites>
+    <sprites name="first_things">
+      <sprite>sprites\sprCherryBounce</sprite>
+    </sprites>
+    <sprite>sprites\sprite69</sprite>
+    <sprite>sprites\sprFlashBorder</sprite>
+    <sprite>sprites\sprCherryLeeho</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bAllTiles</background>
     <background>background\background1</background>
+    <background>background\bNeuroTiles</background>
+    <background>background\neurobg</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -366,6 +374,7 @@
       <script>scripts\scrMakeShapes.gml</script>
       <script>scripts\scrMakeCircle.gml</script>
     </scripts>
+    <script>scripts\scrEaseInOutCubic.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fDefault30</font>
@@ -374,6 +383,7 @@
     <font>fonts\fDefault12</font>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_gmlive</object>
     <objects name="world">
       <object>objects\objWorld</object>
       <object>objects\objCamera</object>
@@ -431,7 +441,6 @@
       <object>objects\objMiniLeft</object>
       <object>objects\objMiniDown</object>
       <object>objects\objCherry</object>
-      <object>objects\objCherryBounce</object>
       <object>objects\objCherryBounceRandom</object>
       <object>objects\objCherryBounceLat</object>
       <object>objects\objCherryBounceVert</object>
@@ -481,7 +490,13 @@
       <object>objects\objBossIndicator</object>
       <object>objects\objGameClear</object>
     </objects>
-    <object>objects\obj_gmlive</object>
+    <objects name="boss">
+      <object>objects\objResampleModeXD</object>
+      <object>objects\objNeuro</object>
+      <objects name="first_things">
+        <object>objects\objCherryBounce</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="init">
@@ -491,7 +506,7 @@
       <room>rooms\rOptions</room>
       <room>rooms\rDifficultySelect</room>
     </rooms>
-    <room>rooms\rSampleRoom</room>
+    <room>rooms\rNeuroRockOut</room>
     <room>rooms\rTemplate</room>
   </rooms>
   <constants number="1">
