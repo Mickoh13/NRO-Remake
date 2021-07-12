@@ -38,12 +38,18 @@ easing_t = 0;
 blowAmount = irandom_range(1,2);
 bounceAmount = irandom_range(1,2);
 xIc = 48;
-tModRandom = 11;
+tModRandom = 12;
 scaleRandom = random_range(0.35,0.75);
 flashInd = 1;
 sqTag = 0;
 sqSlow = true;
 rAngle = random(360);
+fallCount = 0;
+fallAmount1 = 0;
+fallAmount2 = 0;
+fallInst = 0;
+fallAngleCross = 0;
+fallCheckPrime = 0;
 
 if (t == 0)
 {
@@ -411,7 +417,7 @@ with objCherryLine
 image_alpha = indAlpha[currentInd]
 move = true;
 alarm[0] = 0;
-speed = 6
+speed = 6.5;
 direction = 270;
 }
 }
@@ -423,7 +429,7 @@ flashAlpha = 0.4;
 with objCherryLine
 {
 chance = irandom(4);
-if chance &lt; 3
+if chance &lt; 2
 {
 fade = false;
 }
@@ -519,10 +525,10 @@ aBig.direction = 90;
 aBig.friction = -0.06;
 }
 
-if t &gt; 965 &amp;&amp; t &lt; 1211
+if t &gt; 965 &amp;&amp; t &lt; 1077
 {
-scaleRandom = random_range(0.25,1);
-with objCherry
+scaleRandom = random_range(0.45,0.9);
+with objCherrySpray2
 {
 image_xscale = other.scaleRandom;
 image_yscale = image_xscale;
@@ -532,6 +538,8 @@ image_yscale = image_xscale;
 if t = 1077
 {
 flashInd = 2;
+with objCherrySpray2
+friction = -0.275;
 with objCherrySpray1
 {
 image_index = irandom_excluding(image_number,image_index);
@@ -556,7 +564,7 @@ flashAlpha = ((t-1077)/603);
 with objCherrySpray1
 {
 image_index = irandom_excluding(image_number,image_index);
-vspeed = -6.25;
+vspeed = -6.275;
 }
 }
 }
@@ -615,51 +623,165 @@ sqTag = 0;
 
 if t = 1481
 {
+flashAlpha = 0.3;
 rAngle = random(360);
 with objCherrySquares
 {
 direction = point_direction(objPlayer.x,objPlayer.y,x,y);
-speed = 32;
+speed = 35;
 image_alpha = 0.75;
 }
-for(i = 0; i &lt; 360; i += 360/20){
+for(i = 0; i &lt; 360; i += 360/26){
     obj = instance_create(0,0,objCherryFastCurve);
     obj.direction = i + rAngle;
-    obj.speed = 12;
-    obj.friction = 4;
-    obj.curve = -1.65;
+    obj.speed = 40;
+    obj.friction = 5;
+    obj.curve = -1.5;
 }
-for(i = 0; i &lt; 360; i += 360/20){
+for(i = 0; i &lt; 360; i += 360/26){
     obj = instance_create(0,0,objCherryFastCurve);
     obj.direction = i + rAngle;
-    obj.speed = 12;
-    obj.friction = 4;
-    obj.curve = 1.65;
+    obj.speed = 40;
+    obj.friction = 5;
+    obj.curve = 1.5;
 }
-for(i = 0; i &lt; 360; i += 360/20){
+for(i = 0; i &lt; 360; i += 360/26){
     obj = instance_create(800,0,objCherryFastCurve)
     obj.direction = i + rAngle;
-    obj.speed = 12;
-    obj.friction = 4;
-    obj.curve = 1.65;
+    obj.speed = 40;
+    obj.friction = 5;
+    obj.curve = 1.5;
 }
-for(i = 0; i &lt; 360; i += 360/20){
+for(i = 0; i &lt; 360; i += 360/26){
     obj = instance_create(800,0,objCherryFastCurve)
     obj.direction = i + rAngle;
-    obj.speed = 12;
-    obj.friction = 4;
-    obj.curve = -1.65;
+    obj.speed = 40;
+    obj.friction = 5;
+    obj.curve = -1.5;
 }
 }
 
-if t = 1490
+if t = 1489
 {
+flashAlpha = 0.3;
 with objCherryFastCurve
 {
 curving = true;
-speed = 18;
+speed = 16;
 friction = 0;
 alarm[0] = 90;
+}
+}
+
+if t &gt; 1507 &amp;&amp; ((t-1507) mod 2) = 0 &amp;&amp; t &lt; 1742
+{
+aFall = instance_create(random(800),0,objCherryFall)
+aFall.xAdd = random_range(-2,2);
+aFall.fSpd = random_range(5,11);
+aFall.yAdd = aFall.fSpd;
+}
+        
+if t = 1507 || t = 1520 || t = 1533 || t = 1546 || t = 1577 || t = 1590 || t = 1603 || t = 1616 || t = 1646 || t = 1660 || t = 1673 || t = 1686 || t = 1714 || t = 1729
+{
+with objCherryFall
+{
+yAdd = yAdd * random_range(1.25,3.15);
+wAlpha = 0.3 + 0.55*(yAdd/fSpd);
+};
+scrMakeShapes(0,0,45,4,4,10,objCherrySquares2);
+scrMakeShapes(800,0,45,4,4,10,objCherrySquares2);
+scrMakeShapes(0,608,45,4,4,10,objCherrySquares2);
+scrMakeShapes(800,608,45,4,4,10,objCherrySquares2);
+}
+
+if t = 1742
+{
+flashAlpha = 0.25;
+rAngle = random(360);
+if instance_exists(objCherryFall)
+{
+fallCount = instance_number(objCherryFall);
+fallCheckPrime = fallCount/2;
+if !(fallCheckPrime == floor(fallCheckPrime))
+{
+with instance_find(objCherryFall,irandom(fallCount))
+instance_destroy();
+fallCount--;
+}
+fallAmount1 = floor(fallCount/2);
+fallAmount2 = fallCount-fallAmount1;
+fallAngleCross = 360/(fallAmount1*2);
+
+for(var i = 0; i &lt; fallCount; i++)
+{
+with instance_find(objCherryFall,i)
+{
+if other.fallInst &lt; other.fallAmount1
+{
+xx = 400 + 80*dsin(i*(360/other.fallAmount1)+other.rAngle);
+yy = 304 + 80*dcos(i*(360/other.fallAmount1)+other.rAngle);
+fDir = i*(360/other.fallAmount1)+other.rAngle;
+fSpd = 10;
+}
+else
+{
+xx = 400 + 112*dsin(i*(360/other.fallAmount2)+other.rAngle+other.fallAngleCross);
+yy = 304 + 112*dcos(i*(360/other.fallAmount2)+other.rAngle+other.fallAngleCross);
+fSpd = 12;
+}
+active = true;
+wAlpha = 0;
+image_alpha = 0.8;
+}
+fallInst++;
+}
+}
+
+
+with objCherrySquares2
+{
+image_alpha = 0.5;
+speed = 0;
+active = true;
+rAngle = 9 * irandom(40);
+xRadius = 400+random_range(110,146)*dsin(rAngle);
+yRadius = 128+random_range(110,146)*dcos(rAngle);
+xx = lerp(x,xRadius,0.5);
+yy = lerp(y,yRadius,0.5);
+}
+}
+
+if t = 1754
+{
+flashAlpha = 0.375;
+with objCherryFall
+{
+fuckoff = true;
+active = false;
+x = xx;
+y = yy;
+image_alpha = 1;
+speed = fSpd;
+direction = point_direction(400,304,xx,yy);
+}
+with objCherrySquares2
+{
+xx = xRadius;
+yy = yRadius;
+}
+}
+
+if t = 1766
+{
+flashAlpha = 0.5;
+instance_destroy(objCherrySquares2);
+for(var i = 0; i &lt; 360; i += 9)
+{
+objBig = instance_create(400+128*dsin(i),128+128*dcos(i),objCherry);
+objBig.direction = point_direction(400,128,400+128*dsin(i),128+128*dcos(i));
+objBig.speed = 12;
+objBig.image_xscale = 1.75;
+objBig.image_yscale = 1.75;
 }
 }
 </string>

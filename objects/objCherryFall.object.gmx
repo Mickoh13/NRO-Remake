@@ -3,9 +3,9 @@
   <spriteName>sprCherryLeeho</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
-  <parentName>objPlayerKiller</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,18 +27,22 @@
             <kind>1</kind>
             <string>image_speed = 0;
 image_index = irandom(image_number);
-image_xscale = 2;
-image_yscale = 2;
-alarm[0] = 10;
+fSpd = 0;
+yAdd = 0;
+xAdd = 0;
+wAlpha = 0;
 active = false;
-rAmnt = 1;
-rAngle = random(360);
+xx = 0;
+yy = 0;
+fSpd = 0;
+fDir = 0;
+fuckoff = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -55,24 +59,24 @@ rAngle = random(360);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i = 0; i &lt; 360; i += 360/20){
-    obj = instance_create(x,y,objCherrySpray2)
-    obj.direction = i + rAngle;
-    obj.speed = 14;
-    obj.curve = -1.55;
+            <string>if !(active) &amp;&amp; !(fuckoff)
+{
+x += xAdd;
+y += yAdd;
+yAdd = lerp(yAdd,fSpd,random_range(0.15,0.4));
+wAlpha = lerp(wAlpha,0,random_range(0.1,0.25));
 }
-for(i = 0; i &lt; 360; i += 360/20){
-    obj = instance_create(x,y,objCherrySpray2)
-    obj.direction = i + rAngle;
-    obj.speed = 14;
-    obj.curve = 1.55;
+else if !(fuckoff)
+{
+x = lerp(x,xx,random_range(0.2,0.5));
+y = lerp(y,yy,random_range(0.2,0.5));
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="4" ename="objPlayer">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -89,27 +93,56 @@ for(i = 0; i &lt; 360; i += 360/20){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>repeat(choose(1,1,rAmnt))
-{
-aSpray = instance_create(x,y,objCherrySpray2);
-if !(active)
-{
-aSpray.direction = random(360);
-aSpray.speed = random_range(6,10);
-}
-else
-{
-aSpray.rDir = random(360);
-aSpray.rSpd = random_range(4.75,8.5);
-aSpray.rFric = 0.3;
-}
-aSpray.image_xscale = objNeuro.scaleRandom;
-aSpray.image_yscale = objNeuro.scaleRandom;
-aSpray.active = active;
-if !(active)
-aSpray.curve = random_range(-0.5,0.5);
-}
-alarm[0] = 1;
+            <string>if !(active)
+scrKillPlayer();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if !(active)
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+draw_sprite_ext(sprCherryNothing,0,x,y,image_xscale,image_yscale,image_angle,image_blend,wAlpha);
 </string>
           </argument>
         </arguments>

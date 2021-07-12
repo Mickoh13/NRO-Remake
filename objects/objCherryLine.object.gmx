@@ -133,7 +133,7 @@ if (move)
 if (fade)
 alpha += 1/60;
 t++;
-if t &gt; 20 &amp;&amp; !(slow)
+if t &gt; 25 &amp;&amp; !(slow)
 {
 speedVal += 0.04;
 speed = lerp(speed,speedVal,0.1);
@@ -182,9 +182,16 @@ else
 xx += hspeed;
 image_angle += angleAdd;
 alpha = min(alpha+0.05,1);
-radius = min(radius+11,63);
 x = xx + radius*dsin(image_angle);
 y = yy + radius*dcos(image_angle);
+if hspeed != 0
+{
+image_xscale = max(image_xscale-0.005,0);
+image_yscale = max(image_yscale-0.005,0);
+radius = max(radius-0.315,0);
+}
+else
+radius = min(radius+11,63);
 }
 if wAlpha &gt; 0
 wAlpha = max(wAlpha-0.05,0);
@@ -192,8 +199,8 @@ wAlpha = max(wAlpha-0.05,0);
 else
 {
 image_alpha = 0;
-wAlpha -= 0.05;
-if wAlpha &lt;= 0
+alpha -= 0.1;
+if alpha &lt;= 0
 instance_destroy();
 }
 </string>
@@ -242,8 +249,10 @@ if (fade)
 draw_sprite_ext(sprDarkLeeho,0,x,y,image_xscale,image_yscale,image_angle,c_white,alpha);
 }
 if (active)
+{
 draw_sprite_ext(sprite_index,4,x,y,image_xscale,image_yscale,image_angle,image_blend,alpha);
 draw_sprite_ext(sprCherryNothing,0,x,y,image_xscale,image_yscale,image_angle,image_blend,wAlpha);
+}
 </string>
           </argument>
         </arguments>

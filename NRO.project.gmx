@@ -507,6 +507,8 @@
       <objects name="anticipation">
         <object>objects\objCherrySquares</object>
         <object>objects\objCherryFastCurve</object>
+        <object>objects\objCherryFall</object>
+        <object>objects\objCherrySquares2</object>
       </objects>
     </objects>
   </objects>
@@ -522,7 +524,7 @@
     <room>rooms\rTemplate</room>
   </rooms>
   <constants number="1">
-    <constant name="live_enabled">1</constant>
+    <constant name="live_enabled">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
