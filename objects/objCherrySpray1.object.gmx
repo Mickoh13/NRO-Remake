@@ -27,20 +27,18 @@
             <kind>1</kind>
             <string>image_speed = 0;
 image_index = irandom(image_number);
-alpha = false;
-done = false;
-shakeA = 2;
-alphaA = 0.5;
-wam = false;
-xx = x;
-yy = y;
-curve = 0;
+image_xscale = 2;
+image_yscale = 2;
+alarm[0] = 10;
+active = false;
+rAmnt = 1;
+rAngle = random(360);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -57,24 +55,24 @@ curve = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alpha)
-{
-x += random_range(-shakeA,shakeA);
-y += random_range(-shakeA,shakeA);
-image_alpha = min(image_alpha+0.025,alphaA);
+            <string>for(i = 0; i &lt; 360; i += 360/20){
+    obj = instance_create(x,y,objCherrySpray2)
+    obj.direction = i + rAngle;
+    obj.speed = 14;
+    obj.curve = -1.55;
 }
-
-if (wam)
-{
-x = lerp(x,xx,random_range(0.1,0.35));
-y = lerp(y,yy,random_range(0.1,0.35));
+for(i = 0; i &lt; 360; i += 360/20){
+    obj = instance_create(x,y,objCherrySpray2)
+    obj.direction = i + rAngle;
+    obj.speed = 14;
+    obj.curve = 1.55;
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -91,7 +89,27 @@ y = lerp(y,yy,random_range(0.1,0.35));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>repeat(rAmnt)
+{
+aSpray = instance_create(x,y,objCherrySpray2);
+if !(active)
+{
+aSpray.direction = random(360);
+aSpray.speed = random_range(6,10);
+}
+else
+{
+aSpray.rDir = random(360);
+aSpray.rSpd = random_range(6,10);
+aSpray.rFric = 0.35;
+}
+aSpray.image_xscale = objNeuro.scaleRandom;
+aSpray.image_yscale = objNeuro.scaleRandom;
+aSpray.active = active;
+if !(active)
+aSpray.curve = random_range(-0.5,0.5);
+}
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>

@@ -27,14 +27,10 @@
             <kind>1</kind>
             <string>image_speed = 0;
 image_index = irandom(image_number);
-alpha = false;
-done = false;
-shakeA = 2;
-alphaA = 0.5;
-wam = false;
-xx = x;
-yy = y;
-curve = 0;
+slow = true;
+difference = 0;
+tag = 0;
+sqSpd = 0;
 </string>
           </argument>
         </arguments>
@@ -57,18 +53,34 @@ curve = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alpha)
+            <string>if (slow)
 {
-x += random_range(-shakeA,shakeA);
-y += random_range(-shakeA,shakeA);
-image_alpha = min(image_alpha+0.025,alphaA);
+speed = lerp(speed,0.75*difference,0.15);
 }
-
-if (wam)
-{
-x = lerp(x,xx,random_range(0.1,0.35));
-y = lerp(y,yy,random_range(0.1,0.35));
-}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objPlayer">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (image_alpha == 1)
+scrKillPlayer();
 </string>
           </argument>
         </arguments>

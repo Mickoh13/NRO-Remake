@@ -27,14 +27,14 @@
             <kind>1</kind>
             <string>image_speed = 0;
 image_index = irandom(image_number);
-alpha = false;
-done = false;
-shakeA = 2;
-alphaA = 0.5;
-wam = false;
+curve = 0;
+active = false;
+rSpd = speed;
+rDir = direction;
+rLength = 0;
+rFric = 0;
 xx = x;
 yy = y;
-curve = 0;
 </string>
           </argument>
         </arguments>
@@ -57,17 +57,14 @@ curve = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alpha)
+            <string>if !(active)
+direction += curve;
+else
 {
-x += random_range(-shakeA,shakeA);
-y += random_range(-shakeA,shakeA);
-image_alpha = min(image_alpha+0.025,alphaA);
-}
-
-if (wam)
-{
-x = lerp(x,xx,random_range(0.1,0.35));
-y = lerp(y,yy,random_range(0.1,0.35));
+rSpd += rFric;
+rLength += rSpd;
+x = xx + rLength*dsin(rDir);
+y = yy + rLength*dcos(rDir);
 }
 </string>
           </argument>

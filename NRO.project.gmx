@@ -321,12 +321,14 @@
       <sprite>sprites\sprSecretItem</sprite>
       <sprite>sprites\sprBossItem</sprite>
     </sprites>
-    <sprites name="first_things">
+    <sprites name="control">
       <sprite>sprites\sprCherryBounce</sprite>
     </sprites>
-    <sprite>sprites\sprite69</sprite>
     <sprite>sprites\sprFlashBorder</sprite>
     <sprite>sprites\sprCherryLeeho</sprite>
+    <sprite>sprites\sprGreyLeeho</sprite>
+    <sprite>sprites\sprDarkLeeho</sprite>
+    <sprite>sprites\sprCherryNothing</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bAllTiles</background>
@@ -372,9 +374,12 @@
     <scripts name="functions">
       <script>scripts\scrDrawTextOutline.gml</script>
       <script>scripts\scrMakeShapes.gml</script>
+      <script>scripts\scrMakeShapes_a.gml</script>
       <script>scripts\scrMakeCircle.gml</script>
     </scripts>
     <script>scripts\scrEaseInOutCubic.gml</script>
+    <script>scripts\irandom_excluding.gml</script>
+    <script>scripts\irandom_excluding_Line.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fDefault30</font>
@@ -440,7 +445,6 @@
       <object>objects\objMiniRight</object>
       <object>objects\objMiniLeft</object>
       <object>objects\objMiniDown</object>
-      <object>objects\objCherry</object>
       <object>objects\objCherryBounceRandom</object>
       <object>objects\objCherryBounceLat</object>
       <object>objects\objCherryBounceVert</object>
@@ -493,8 +497,16 @@
     <objects name="boss">
       <object>objects\objResampleModeXD</object>
       <object>objects\objNeuro</object>
-      <objects name="first_things">
+      <object>objects\objCherry</object>
+      <objects name="control">
         <object>objects\objCherryBounce</object>
+        <object>objects\objCherryLine</object>
+        <object>objects\objCherrySpray1</object>
+        <object>objects\objCherrySpray2</object>
+      </objects>
+      <objects name="anticipation">
+        <object>objects\objCherrySquares</object>
+        <object>objects\objCherryFastCurve</object>
       </objects>
     </objects>
   </objects>
