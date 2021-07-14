@@ -55,13 +55,13 @@ rAngle = random(360);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i = 0; i &lt; 360; i += 360/20){
+            <string>for(i = 0; i &lt; 360; i += 360/15){
     obj = instance_create(x,y,objCherrySpray2)
     obj.direction = i + rAngle;
     obj.speed = 14;
     obj.curve = -1.55;
 }
-for(i = 0; i &lt; 360; i += 360/20){
+for(i = 0; i &lt; 360; i += 360/15){
     obj = instance_create(x,y,objCherrySpray2)
     obj.direction = i + rAngle;
     obj.speed = 14;
@@ -89,7 +89,7 @@ for(i = 0; i &lt; 360; i += 360/20){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>repeat(choose(1,1,rAmnt))
+            <string>repeat(choose(1,1,1,rAmnt,rAmnt))
 {
 aSpray = instance_create(x,y,objCherrySpray2);
 if !(active)
@@ -103,8 +103,8 @@ aSpray.rDir = random(360);
 aSpray.rSpd = random_range(4.75,8.5);
 aSpray.rFric = 0.3;
 }
-aSpray.image_xscale = objNeuro.scaleRandom;
-aSpray.image_yscale = objNeuro.scaleRandom;
+aSpray.image_xscale = random_range(0.35,0.9);
+aSpray.image_yscale = aSpray.image_xscale;
 aSpray.active = active;
 if !(active)
 aSpray.curve = random_range(-0.5,0.5);

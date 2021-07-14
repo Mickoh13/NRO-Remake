@@ -58,8 +58,8 @@ if (state == 0) //nope
             <kind>1</kind>
             <string>repeat(choose(1,2))
 {
-aSmol = instance_create(x+63*sin(degtorad(image_angle+51)),y+63*cos(degtorad(image_angle+51)),objCherry);
-aSmol.direction = point_direction(x+63*dsin(image_angle+51),y+63*dcos(image_angle+51),400,304) + random_range(-5,5);
+aSmol = instance_create(x+64*sin(degtorad(image_angle+51)),y+65*cos(degtorad(image_angle+51)),objCherry);
+aSmol.direction = point_direction(x+64*dsin(image_angle+51),y+65*dcos(image_angle+51),400,304) + random_range(-5,5);
 aSmol.speed = random_range(2,5);
 aSmol.image_xscale = random_range(0.35,0.5);
 aSmol.image_yscale = aSmol.image_xscale;

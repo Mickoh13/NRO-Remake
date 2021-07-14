@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objPlayerKiller</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -34,6 +34,10 @@ yy = 0;
 xRadius = 0;
 yRadius = 0;
 rAngle = 0;
+lerpRange1 = 0.2;
+lerpRange2 = 0.4;
+xPos = 0;
+yPos = 0;
 </string>
           </argument>
         </arguments>
@@ -58,9 +62,33 @@ rAngle = 0;
             <kind>1</kind>
             <string>if (active)
 {
-x = lerp(x,xx,random_range(0.3,0.65));
-y = lerp(y,yy,random_range(0.3,0.65));
+x = lerp(x,xx,random_range(lerpRange1,lerpRange2));
+y = lerp(y,yy,random_range(lerpRange1,lerpRange2));
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objPlayer">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if !(active)
+scrKillPlayer();
 </string>
           </argument>
         </arguments>

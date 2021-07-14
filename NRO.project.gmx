@@ -329,12 +329,14 @@
     <sprite>sprites\sprGreyLeeho</sprite>
     <sprite>sprites\sprDarkLeeho</sprite>
     <sprite>sprites\sprCherryNothing</sprite>
+    <sprite>sprites\sprite71</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bAllTiles</background>
     <background>background\background1</background>
     <background>background\bNeuroTiles</background>
-    <background>background\neurobg</background>
+    <background>background\background4</background>
+    <background>background\bNeuroTilesNew</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -524,7 +526,7 @@
     <room>rooms\rTemplate</room>
   </rooms>
   <constants number="1">
-    <constant name="live_enabled">0</constant>
+    <constant name="live_enabled">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
