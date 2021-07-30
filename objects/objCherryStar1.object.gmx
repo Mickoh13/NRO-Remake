@@ -3,9 +3,9 @@
   <spriteName>sprCherryLeeho</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-5</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>objPlayerKiller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,18 +25,40 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
-image_index = irandom(image_number);
-fSpd = 0;
-yAdd = 0;
-xAdd = 0;
-wAlpha = 0;
-active = false;
-xx = 0;
-yy = 0;
-fSpd = 0;
-fDir = 0;
-fuckoff = false;
+            <string>image_index = 1;
+image_speed = 0;
+dirFormula = 0;
+lengthFormula = 0;
+dir = 0;
+dirTo = 0;
+length = 0;
+lengthMax = 1;
+curve = 0.75;
+active = true;
+alarm[0] = 150;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -59,66 +81,15 @@ fuckoff = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !(active) &amp;&amp; !(fuckoff)
+            <string>if (active)
 {
-x += xAdd;
-y += yAdd;
-yAdd = lerp(yAdd,fSpd,random_range(0.15,0.4));
-wAlpha = lerp(wAlpha,0,random_range(0.1,0.25));
+x = xstart+(length*dsin(dirFormula+dir));
+y = ystart+(length*dcos(dirFormula+dir));
+length = lerp(length,(192*lengthFormula)*lengthMax,0.2);
+dir = lerp(dir,dirTo,0.125);
 }
-else if !(fuckoff)
-{
-x = lerp(x,xx,random_range(0.2,0.5));
-y = lerp(y,yy,random_range(0.2,0.5));
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !(active)
-scrKillPlayer();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !(active)
-instance_destroy();
+else
+direction += curve;
 </string>
           </argument>
         </arguments>
@@ -141,8 +112,9 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_sprite_ext(sprCherryNothing,0,x,y,image_xscale,image_yscale,image_angle,image_blend,min(0.9,wAlpha));
+            <string>draw_set_blend_mode(bm_add);
+draw_self();
+draw_set_blend_mode(bm_normal);
 </string>
           </argument>
         </arguments>

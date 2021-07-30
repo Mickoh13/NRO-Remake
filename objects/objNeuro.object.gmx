@@ -51,6 +51,26 @@ fallInst = 0;
 fallAngleCross = 0;
 fallCheckPrime = 0;
 rAngleSquare = 0;
+ukraineAlpha = 0;
+flashSub = 0.028;
+UkrXX = 0;
+UkrYY = 0;
+ukraineAng = 0;
+ukraineSwitch = -1;
+invertScale = 0;
+
+for (var i = 0; i &lt;= 4; i++)
+{
+global.UkrXX[i] = 0;
+global.UkrYY[i] = 0;
+}
+
+for(var i = 0; i &lt;= 40; i++)
+{
+global.rAngleImg[i] = irandom(10);
+}
+global.ringSquareInd = 0;
+
 if (t == 0)
 {
 screenAlpha = 1;
@@ -105,7 +125,7 @@ if abs(deltaCount) &gt; 5
 }
 
 if flashAlpha &gt; 0
-flashAlpha = max(flashAlpha-0.028,0);
+flashAlpha = max(flashAlpha-flashSub,0);
 </string>
           </argument>
         </arguments>
@@ -368,7 +388,7 @@ if t &gt; 587 &amp;&amp; t &lt; 654
 {
 flashInd = 0;
 if ((t-587) mod 3) = 0
-flashAlpha = 0.15+0.1*dcos(t*150);
+flashAlpha += random_range(0.040,0.114);
 if ((t-587) mod tModRandom) = 0
 {
 if tModRandom &gt; 1
@@ -593,13 +613,13 @@ instance_destroy(objCherrySpray1);
             <string>///2. Anticipation
 if t = 1230 || t = 1241 || t = 1254 || t = 1267 || t = 1297 || t = 1310 || t = 1323 || t = 1337 || t = 1367 || t = 1379 || t = 1392 || t = 1406 || t = 1436 || t = 1449 || t = 1462 || t = 1476
 {
-with objCherrySquares
+with objCherrySquares1
 whAlpha = 0.75;
 if t = 1367
 sqSlow = false;
 if (t &gt; 1296 &amp;&amp; t &lt; 1367) || (t &gt; 1435)
 {
-with objCherrySquares
+with objCherrySquares1
 {
 if (tag == other.sqTag) &amp;&amp; (slow)
 slow = false;
@@ -608,7 +628,7 @@ slow = false;
 if t &lt; 1435
 {
 repeat(choose(1,1,2,2,3))
-scrMakeShapes_a(random_range(50,750),random_range(80,120),random(360),4,irandom_range(4,6),random_range(10,14),objCherrySquares,sqTag,sqSlow);
+scrMakeShapes_a(random_range(50,750),random_range(80,120),random(360),4,irandom_range(4,6),random_range(10,14),objCherrySquares1,sqTag,sqSlow);
 }
 if t &lt; 1367 || t &gt; 1435
 sqTag++;
@@ -620,7 +640,7 @@ if t = 1481
 {
 flashAlpha = 0.3;
 rAngle = random(360);
-with objCherrySquares
+with objCherrySquares1
 {
 direction = point_direction(objPlayer.x,objPlayer.y,x,y);
 speed = 35;
@@ -699,10 +719,70 @@ scrMakeShapes(0,608,45,4,4,10,objCherrySquares2);
 scrMakeShapes(800,608,45,4,4,10,objCherrySquares2);
 }
 
+if t = 1609
+instance_create(400,304,objUkraineMain);
+
+if t &gt; 1609 &amp;&amp; t &lt; 1639 &amp;&amp; ((t-1609) mod 2) = 0
+{
+ukraineAlpha += 1/15;
+with objUkraineMain
+{
+image_alpha = other.ukraineAlpha;
+visible = !visible;
+}
+}
+
+if t = 1643
+{
+with objUkraineMain
+{
+image_alpha = 1;
+visible = true;
+}
+}
+
+if t = 1657
+{
+scrSpawnStarPre_Ass(400,304,5,4,90,objCherryStar1);
+scrSpawnStarPre_Ass(400,304,5,4,198,objCherryStar1);
+}
+
+if t = 1677
+{
+with objCherryStar1
+depth = -3;
+}
+
+if t &gt; 1677 &amp;&amp; t &lt; 1697
+{
+with objCherryStar1
+lengthMax -= 0.04;
+}
+
+if t = 1697
+{
+with objCherryStar1
+{
+aCopy = instance_create(x,y,objCherryStar1);
+aCopy.direction = point_direction(xstart,ystart,x,y);
+aCopy.speed = 10*lengthFormula;
+aCopy.friction = -0.1*lengthFormula;
+aCopy.active = false;
+aCopy.image_index = 8;
+aCopy.curve = -curve;
+active = false;
+direction = point_direction(xstart,ystart,x,y);
+speed = 10*lengthFormula;
+friction = -0.1*lengthFormula;
+sprite_index = sprLeehoCyan;
+}
+}
+
 if t = 1742
 {
 flashAlpha = 0.25;
 rAngle = random(360);
+
 if instance_exists(objCherryFall)
 {
 fallCount = instance_number(objCherryFall);
@@ -741,24 +821,46 @@ image_alpha = 0.8;
 fallInst++;
 }
 }
+
 rAngleSquare = random(360);
+if (instance_exists(objCherrySquares2))
+{
+repeat(41)
+{
+with instance_find(objCherrySquares2,global.ringSquareInd)
+{
+if !(done)
+{
+rAngleInd = global.ringSquareInd;
+rAngle = -90 + (9 * rAngleInd);
+image_index = global.rAngleImg[rAngleInd];
+done = true;
+}
+}
+global.ringSquareInd++;
+}
+
 with objCherrySquares2
 {
-image_alpha = 0.5;
+image_alpha = 0.85;
 speed = 0;
 active = true;
-if x &gt; 400
-rAngle = -90 + 9 * irandom(20);
-else
-rAngle = 90 + 9 * irandom(20);
-xRadius = 400+random_range(110,146)*dsin(rAngle+other.rAngleSquare);
-yRadius = 128+random_range(110,146)*dcos(rAngle+other.rAngleSquare);
-xPos = random(800);
-yPos = random(608);
+if !(done)
+{
+rAngleInd = irandom(40);
+rAngle = -90 + (9 * rAngleInd);
+image_index = global.rAngleImg[rAngleInd];
+done = true;
+}
+xRadius = 400+random_range(120,136)*dsin(rAngle+other.rAngleSquare);
+yRadius = 128+random_range(120,136)*dcos(rAngle+other.rAngleSquare);
+xPos = lerp(x,xRadius,random_range(0.5,0.625));
+yPos = lerp(y,yRadius,random_range(0.5,0.625));
 xx = xPos;
 yy = yPos;
 lerpRange1 = 0.25;
 lerpRange2 = 0.4;
+}
 }
 }
 
@@ -790,13 +892,149 @@ flashAlpha = 0.6;
 instance_destroy(objCherrySquares2);
 for(var i = 0; i &lt; 360; i += 9)
 {
-objBig = instance_create(400+128*dsin(i+other.rAngleSquare),128+128*dcos(i+other.rAngleSquare),objCherry);
-objBig.direction = point_direction(400,128,400+128*dsin(i+other.rAngleSquare),128+128*dcos(i+other.rAngleSquare));
+objBig = instance_create(400+128*dsin(i+other.rAngleSquare-90),128+128*dcos(i+other.rAngleSquare-90),objCherry);
+objBig.direction = point_direction(400,128,400+128*dsin(i+other.rAngleSquare-90),128+128*dcos(i+other.rAngleSquare-90));
 objBig.speed = 12;
 objBig.image_xscale = 1.75;
 objBig.image_yscale = 1.75;
+objBig.image_index = global.rAngleImg[i/9];
 }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///3. Pre-Assault
+if t = 1766
+{
+flashInd = 0;
+with objUkraineMain
+{
+alarm[0] = 1;
+state = 0;
+}
+}
+
+if t &gt; 1766 &amp;&amp; t &lt; 1966
+flashAlpha = 0.1+abs(0.2*dsin((t-1766)*10));
+if t &gt; 1976 &amp;&amp; t &lt; 2047
+flashAlpha = lerp(0,0.5,dsin((t-1976)*(90/71)));
+
+if t = 2047
+{
+flashSub = 0.065;
+with objUkraineMain
+{
+for(var i = 0; i &lt; 360; i += 180)
+{
+aSpray = instance_create(x,y,objCherrySpray3);
+aSpray.direction = i;
+aSpray.speed = 13;
+}
+alarm[0] = 0;
+state = -1;
+}
+}
+
+if t &gt; 2047 &amp;&amp; t &lt; 2183 &amp;&amp; ((t-2047) mod 7) = 0
+{
+for (var jj = 0; jj &lt; 360; jj += 90)
+{
+aUkraine = instance_create(400+(global.UkrXX[jj/90]),168+(global.UkrYY[jj/90]),objUkraineCherry);
+aUkraine.direction = jj + ukraineAng;
+aUkraine.speed = 6;
+aUkraine.friction = 1;
+aUkraine.cherryInd = jj/90;
+aUkraine.alarm[0] = 6;
+}
+}
+
+if t = 2117
+ukraineAng -= 90;
+
+if t &gt; 2047 &amp;&amp; (t mod 6) = 0 &amp;&amp; t &lt; 2186
+flashAlpha = 0.35;
+
+if t = 2047
+flashSub = 0.06;
+
+if t = 2186
+{
+flashSub = 0.13;
+with objCherrySpray3
+{
+alTime = 1;
+friction = -0.4;
+}
+with objUkraineCherry
+{
+nLength = point_distance(400,168,x,y);
+nDir = point_direction(400,168,x,y);
+active = true;
+}
+}
+
+if t = 2194
+{
+with objUkraineCherry
+doTrails = true;
+}
+
+if t &gt; 2186 &amp;&amp; (t mod 3) = 0 &amp;&amp; t &lt; 2256
+flashAlpha = 0.425;
+
+if t = 2256
+instance_destroy(objCherrySpray3);
+
+if t = 2320
+instance_create(0,0,objInvert);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///4. Assault
+
+if t = 2365
+with objUkraineCherry
+doTrails = false;
+
+if (t &gt; 2327 &amp;&amp; t &lt; 2347) || (t &gt; 2467 &amp;&amp; t &lt; 2487)
+invertScale = lerp(invertScale,3,0.1);
+
+if (t &gt; 2397 &amp;&amp; t &lt; 2467) || (t &gt; 2537)
+invertScale = lerp(invertScale,0,0.2);
 </string>
           </argument>
         </arguments>

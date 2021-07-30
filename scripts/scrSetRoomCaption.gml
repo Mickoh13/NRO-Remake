@@ -19,6 +19,9 @@ if (global.gameStarted)
     roomCaption += string(t div 10);
     t = t mod 10;
     roomCaption += string(t);
+    
+    if (instance_exists(objNeuro))
+    roomCaption += " t: " + string(objNeuro.t);
 }
 
 if (roomCaption != global.roomCaptionLast)  //only update the caption when it changes
