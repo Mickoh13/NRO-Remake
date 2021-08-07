@@ -19,6 +19,7 @@ var spawnSpeed = argument5;
 var spawnObj = argument6;
 var spawnTag = argument7;
 var spawnSlow = argument8;
+var spawnCurve = choose(-0.5,0.5);
 var th, xx, yy, ddx, ddy, dx, dy, a;
 
 th = degtorad(spawnAngle);
@@ -49,5 +50,6 @@ for (var i = 0; i < spawnEdges; i += 1)
         a.difference = point_distance(0,0,dx,dy);
         a.tag = spawnTag;
         a.slow = spawnSlow;
+        a.curve = spawnCurve;
     }
 }

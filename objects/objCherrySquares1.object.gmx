@@ -60,7 +60,8 @@ speed = lerp(speed,0.75*difference,0.15);
 }
 else
 {
-speed = lerp(speed,sqSpd,0.5);
+direction += curve;
+speed = lerp(speed,sqSpd,0.3);
 }
 whAlpha = lerp(whAlpha,0,random_range(0.1,0.25));
 </string>

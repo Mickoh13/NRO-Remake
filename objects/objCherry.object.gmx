@@ -35,6 +35,33 @@ wam = false;
 xx = x;
 yy = y;
 curve = 0;
+glow = false;
+dirCur = 0;
+dirT = 0;
+curvePoint = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>direction += dirCur;
 </string>
           </argument>
         </arguments>
@@ -59,15 +86,27 @@ curve = 0;
             <kind>1</kind>
             <string>if (alpha)
 {
-x += random_range(-shakeA,shakeA);
-y += random_range(-shakeA,shakeA);
+x += (random(shakeA) + 0.25) * choose(-1,1);
+y += (random(shakeA) + 0.25) * choose(-1,1);
 image_alpha = min(image_alpha+0.025,alphaA);
 }
 
 if (wam)
 {
-x = lerp(x,xx,random_range(0.1,0.35));
-y = lerp(y,yy,random_range(0.1,0.35));
+x = lerp(x,xx+18*dsin(y),random_range(0.1,0.25));
+y = lerp(y,yy+18*dcos(x),random_range(0.1,0.25));
+}
+
+if (curvePoint)
+{
+dirT++;
+if (dirT &gt;= 20 &amp;&amp; dirT &lt; 28)
+{
+speed = lerp(speed,speed+random_range(0.25,0.9),random_range(0.3,0.6));
+direction += irandom_range(12,16)*dirCur;
+}
+if dirT &gt;= 28
+curvePoint = false;
 }
 </string>
           </argument>
@@ -92,6 +131,35 @@ y = lerp(y,yy,random_range(0.1,0.35));
           <argument>
             <kind>1</kind>
             <string>instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (glow)
+{
+draw_set_blend_mode(bm_add);
+draw_sprite_ext(sprCherryLeeglow,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
+draw_set_blend_mode(bm_normal);
+}
+draw_self();
 </string>
           </argument>
         </arguments>

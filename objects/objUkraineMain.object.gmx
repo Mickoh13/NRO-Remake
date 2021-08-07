@@ -3,7 +3,7 @@
   <spriteName>sprUkraineMain</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>9</depth>
   <persistent>0</persistent>
   <parentName>objPlayerKiller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -56,19 +56,23 @@ state = -1;
             <kind>1</kind>
             <string>for(i = 0; i &lt; 360; i += 90)
 {
-aSpiral = instance_create(x,y,objCherry);
-aSpiral.direction = (t*9)+i+dir;
-aSpiral.speed = 12;
-aSpiral.image_xscale = random_range(0.45,1);
+aSpiral = instance_create(x,y,objCherrySpraySpiral);
+aSpiral.direction = (t*9)+i+dir+random_range(-3,3);
+aSpiral.speed = random_range(5,8);
+aSpiral.spd = aSpiral.speed;
+aSpiral.image_xscale = random_range(0.75,1);
 aSpiral.image_yscale = aSpiral.image_xscale;
+aSpiral.depth = 100;
 }
-repeat(choose(1,2,3))
+repeat(choose(1,2,3,4))
 {
-a360 = instance_create(x,y,objCherry);
+a360 = instance_create(x,y,objCherrySpraySpiral);
 a360.direction = random(360);
-a360.speed = random_range(9,12);
-a360.image_xscale = random_range(0.45,1);
+a360.speed = random_range(5,8);
+a360.image_xscale = random_range(0.45,0.75);
 a360.image_yscale = a360.image_xscale;
+a360.depth = 100;
+a360.spd = a360.speed;
 }
 alarm[0] = irandom_range(2,4);
 </string>

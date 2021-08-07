@@ -68,8 +68,8 @@ wAlpha = lerp(wAlpha,0,random_range(0.1,0.25));
 }
 else if !(fuckoff)
 {
-x = lerp(x,xx,random_range(0.2,0.5));
-y = lerp(y,yy,random_range(0.2,0.5));
+x = lerp(x,xx+12*dsin(y),random_range(0.1,0.25));
+y = lerp(y,yy+12*dcos(x),random_range(0.1,0.25));
 }
 </string>
           </argument>

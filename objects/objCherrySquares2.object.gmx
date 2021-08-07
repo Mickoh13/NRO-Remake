@@ -64,8 +64,8 @@ done = false;
             <kind>1</kind>
             <string>if (active)
 {
-x = lerp(x,xx,random_range(lerpRange1,lerpRange2));
-y = lerp(y,yy,random_range(lerpRange1,lerpRange2));
+x = lerp(x,xx+12*dsin(y),random_range(lerpRange1,lerpRange2));
+y = lerp(y,yy+12*dcos(x),random_range(lerpRange1,lerpRange2));
 }
 </string>
           </argument>

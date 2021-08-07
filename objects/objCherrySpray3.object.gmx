@@ -3,7 +3,7 @@
   <spriteName>sprCherryLeehoMIDDLE</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>1</depth>
+  <depth>13</depth>
   <persistent>0</persistent>
   <parentName>objPlayerKiller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -33,6 +33,8 @@ alTime = 2;
 alarm[0] = 1;
 spdAdd = 0;
 density = 1;
+randomDir = random(360);
+spikeInd = irandom(11);
 </string>
           </argument>
         </arguments>
@@ -55,15 +57,32 @@ density = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*repeat(120)
+            <string>for(var j = 0; j &lt; 3; j++)
 {
-a3600 = instance_create(x,y,objCherry);
-a3600.direction = random(360);
-a3600.speed = random_range(4,12);
-a3600.friction = 0.15;
-a3600.image_xscale = random_range(0.25,1);
-a3600.image_yscale = a3600.image_xscale;
+randomDir = random(360);
+for(var ii = 0; ii &lt; 360; ii += 360/50)
+{
+aCircle = instance_create(x,y,objCherrySpike);
+aCircle.direction = ii + randomDir + irandom_range(-7,7);
+aCircle.speed = irandom_range(5,7) + 4.5*j;
+aCircle.image_xscale = choose(random_range(0.55,1.15),random_range(0.55,1.15),random_range(0.5,0.8));
+aCircle.image_yscale = aCircle.image_xscale;
+if (aCircle.image_xscale &gt;= 0.8 &amp;&amp; aCircle.image_xscale &lt;= 1)
+{
+aCircle.depth = 9;
+aCircle.spd = aCircle.speed;
+aCircle.spike = true;
+aCircle.curve = random_range(0.75,1.25) * choose(-1,1);
+aCircle.image_index = global.spikeInd;
 }
+else
+{
+aCircle.image_index = irandom_excluding(11,global.spikeInd);
+aCircle.depth = 9.5;
+aCircle.glow = true;
+}
+}
+} 
 </string>
           </argument>
         </arguments>
@@ -93,7 +112,7 @@ a360.direction = random(360);
 a360.speed = random_range(8,15)+spdAdd;
 a360.image_xscale = random_range(0.25,1);
 a360.image_yscale = a360.image_xscale;
-a360.depth = 2;
+a360.depth = 14;
 }
 if (alTime == 1)
 {
@@ -125,6 +144,32 @@ alarm[0] = choose(1,alTime);
             <kind>1</kind>
             <string>move_bounce_solid(0);
 y = lerp(y,96,0.0175);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_blend_mode(bm_add);
+draw_sprite_ext(sprCherryLeeglow,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
+draw_set_blend_mode(bm_normal);
+draw_self();
 </string>
           </argument>
         </arguments>

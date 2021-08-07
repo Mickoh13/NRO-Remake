@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>background_alpha[1] = 0;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -31,8 +31,8 @@
     <yoffset>11010215</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
-    <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="-1"/>
+    <background visible="-1" foreground="0" name="background7" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="bNeuroBG" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -58,93 +58,92 @@
     <instance objName="objPlayerStart" x="96" y="544" name="inst_EFE472C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objNeuro" x="64" y="32" name="inst_3FA95D28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objResampleModeXD" x="32" y="32" name="inst_B927CC09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroCornerBlock" x="0" y="0" name="inst_89FDA6D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroCornerBlock" x="768" y="0" name="inst_E179885E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroCornerBlock" x="768" y="576" name="inst_9E0E0BC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroCornerBlock" x="0" y="576" name="inst_C18FCA64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="32" y="0" name="inst_F7648C58" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="96" y="0" name="inst_BE4120F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="160" y="0" name="inst_5BD1B1A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="224" y="0" name="inst_74A82370" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="288" y="0" name="inst_E5316CE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="352" y="0" name="inst_2B019E50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="416" y="0" name="inst_BE98B343" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="480" y="0" name="inst_C7C3E529" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="544" y="0" name="inst_8C4F42F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="608" y="0" name="inst_91BDCBDA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="672" y="0" name="inst_10CEB937" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="736" y="0" name="inst_385AFB07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="736" y="576" name="inst_8DCD9DB4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="672" y="576" name="inst_98BAE059" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="608" y="576" name="inst_78044940" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="544" y="576" name="inst_0DCF5C6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="480" y="576" name="inst_857803BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="416" y="576" name="inst_A358E75E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="352" y="576" name="inst_3BA69728" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="288" y="576" name="inst_81AD4771" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="224" y="576" name="inst_173D556D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="160" y="576" name="inst_F8EA2A44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="96" y="576" name="inst_C98A2707" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorzLine" x="32" y="576" name="inst_80D31C15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="64" y="0" name="inst_7688C36A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="128" y="0" name="inst_903B53E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="192" y="0" name="inst_FDBC554B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="256" y="0" name="inst_2AAA003F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="320" y="0" name="inst_5D83E884" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="384" y="0" name="inst_16C7B473" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="448" y="0" name="inst_45824126" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="512" y="0" name="inst_9FA5DF25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="576" y="0" name="inst_C6A17AB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="640" y="0" name="inst_B56905FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="704" y="0" name="inst_9333703E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="64" y="576" name="inst_6B131B23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="128" y="576" name="inst_82541E50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="192" y="576" name="inst_323257E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="256" y="576" name="inst_59632E2D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="320" y="576" name="inst_ED878193" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="384" y="576" name="inst_B84E7FDD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="448" y="576" name="inst_DC07B40F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="512" y="576" name="inst_F3A3F21E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="576" y="576" name="inst_8278C271" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="640" y="576" name="inst_BDF64314" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockHorz" x="704" y="576" name="inst_7EBB3987" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="32" name="inst_813181D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="96" name="inst_BA565E4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="160" name="inst_F5524329" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="224" name="inst_82508BB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="288" name="inst_D47D01F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="352" name="inst_CDCF143A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="416" name="inst_E413507A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="480" name="inst_4AFFA005" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="0" y="544" name="inst_7E1FE0E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="64" name="inst_0E571200" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="128" name="inst_84007827" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="192" name="inst_BA2EB8E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="256" name="inst_79DF2A4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="320" name="inst_1D6021F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="384" name="inst_5CA9D8EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="448" name="inst_D5E75BBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="0" y="512" name="inst_E15D6773" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="512" name="inst_814048D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="448" name="inst_84CC7081" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="384" name="inst_8E256B62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="320" name="inst_7E6551E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="256" name="inst_2165F17D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="192" name="inst_564DD6F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="128" name="inst_ED58A211" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVert" x="768" y="64" name="inst_71EF5430" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="32" name="inst_1112EE8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="96" name="inst_1EACC54D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="160" name="inst_29FFCA26" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="224" name="inst_BA5B3CE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="288" name="inst_326F0EE0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="352" name="inst_FE83BDBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="416" name="inst_379D7CB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="480" name="inst_65BC4D03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objNeuroBlockVertLine" x="768" y="544" name="inst_1288891A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
-  <tiles>
-    <tile bgName="bNeuroTilesNew" x="0" y="0" w="32" h="32" xo="0" yo="0" id="10002747" name="inst_E4DBCCDD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="576" w="32" h="32" xo="0" yo="0" id="10002748" name="inst_26778E1F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="576" w="32" h="32" xo="0" yo="0" id="10002749" name="inst_7E07810E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="0" w="32" h="32" xo="0" yo="0" id="10002750" name="inst_42704EAB" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="32" y="0" w="32" h="32" xo="32" yo="0" id="10002751" name="inst_D583723C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="96" y="0" w="32" h="32" xo="32" yo="0" id="10002752" name="inst_085CDB6F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="160" y="0" w="32" h="32" xo="32" yo="0" id="10002753" name="inst_ED94F1FB" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="224" y="0" w="32" h="32" xo="32" yo="0" id="10002754" name="inst_D04796F9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="288" y="0" w="32" h="32" xo="32" yo="0" id="10002755" name="inst_157D44A2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="352" y="0" w="32" h="32" xo="32" yo="0" id="10002756" name="inst_F614EC2F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="416" y="0" w="32" h="32" xo="32" yo="0" id="10002757" name="inst_C1D8A18E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="480" y="0" w="32" h="32" xo="32" yo="0" id="10002758" name="inst_E2482F16" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="544" y="0" w="32" h="32" xo="32" yo="0" id="10002759" name="inst_B6507B8A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="608" y="0" w="32" h="32" xo="32" yo="0" id="10002760" name="inst_E03ED01A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="672" y="0" w="32" h="32" xo="32" yo="0" id="10002761" name="inst_52FD16AE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="736" y="0" w="32" h="32" xo="32" yo="0" id="10002762" name="inst_89C12526" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="736" y="576" w="32" h="32" xo="32" yo="0" id="10002763" name="inst_21FF3093" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="672" y="576" w="32" h="32" xo="32" yo="0" id="10002764" name="inst_FF4EE7E1" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="608" y="576" w="32" h="32" xo="32" yo="0" id="10002765" name="inst_FBDC9707" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="544" y="576" w="32" h="32" xo="32" yo="0" id="10002766" name="inst_8EED5603" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="480" y="576" w="32" h="32" xo="32" yo="0" id="10002767" name="inst_708C013C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="416" y="576" w="32" h="32" xo="32" yo="0" id="10002768" name="inst_6B14E9D7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="352" y="576" w="32" h="32" xo="32" yo="0" id="10002769" name="inst_507C4E9F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="288" y="576" w="32" h="32" xo="32" yo="0" id="10002770" name="inst_229C0008" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="224" y="576" w="32" h="32" xo="32" yo="0" id="10002771" name="inst_54D6AFCC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="160" y="576" w="32" h="32" xo="32" yo="0" id="10002773" name="inst_30D4F422" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="96" y="576" w="32" h="32" xo="32" yo="0" id="10002774" name="inst_F96E90B3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="32" y="576" w="32" h="32" xo="32" yo="0" id="10002775" name="inst_3677E354" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="32" w="32" h="32" xo="0" yo="32" id="10002776" name="inst_32AD73FD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="96" w="32" h="32" xo="0" yo="32" id="10002777" name="inst_D90F2716" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="160" w="32" h="32" xo="0" yo="32" id="10002778" name="inst_4BC894FD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="224" w="32" h="32" xo="0" yo="32" id="10002779" name="inst_A61B9A01" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="288" w="32" h="32" xo="0" yo="32" id="10002781" name="inst_3E83B39C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="352" w="32" h="32" xo="0" yo="32" id="10002782" name="inst_8C28B687" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="416" w="32" h="32" xo="0" yo="32" id="10002783" name="inst_1CD06365" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="480" w="32" h="32" xo="0" yo="32" id="10002784" name="inst_605BFB1D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="544" w="32" h="32" xo="0" yo="32" id="10002785" name="inst_DEDE5C3E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="32" w="32" h="32" xo="0" yo="32" id="10002786" name="inst_42711D27" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="96" w="32" h="32" xo="0" yo="32" id="10002787" name="inst_0D73294A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="160" w="32" h="32" xo="0" yo="32" id="10002788" name="inst_1D802F1E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="224" w="32" h="32" xo="0" yo="32" id="10002789" name="inst_9B0F5859" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="288" w="32" h="32" xo="0" yo="32" id="10002790" name="inst_D3B18722" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="352" w="32" h="32" xo="0" yo="32" id="10002791" name="inst_4A522AAE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="416" w="32" h="32" xo="0" yo="32" id="10002792" name="inst_FBB14FA7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="480" w="32" h="32" xo="0" yo="32" id="10002793" name="inst_EEBF592B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="544" w="32" h="32" xo="0" yo="32" id="10002794" name="inst_D0F39B62" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="64" w="32" h="32" xo="0" yo="64" id="10002795" name="inst_6B3D104F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="128" w="32" h="32" xo="0" yo="64" id="10002796" name="inst_B62EC0B1" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="192" w="32" h="32" xo="0" yo="64" id="10002797" name="inst_71256F05" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="256" w="32" h="32" xo="0" yo="64" id="10002798" name="inst_B4F6D233" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="320" w="32" h="32" xo="0" yo="64" id="10002799" name="inst_E29BE75D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="384" w="32" h="32" xo="0" yo="64" id="10002800" name="inst_43BD0876" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="448" w="32" h="32" xo="0" yo="64" id="10002801" name="inst_03EFF7EA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="0" y="512" w="32" h="32" xo="0" yo="64" id="10002802" name="inst_B2A1F3D2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="64" w="32" h="32" xo="0" yo="64" id="10002803" name="inst_A60469E8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="128" w="32" h="32" xo="0" yo="64" id="10002804" name="inst_83152CF1" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="192" w="32" h="32" xo="0" yo="64" id="10002805" name="inst_1297299C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="256" w="32" h="32" xo="0" yo="64" id="10002806" name="inst_B227D821" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="320" w="32" h="32" xo="0" yo="64" id="10002807" name="inst_B0919CCD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="384" w="32" h="32" xo="0" yo="64" id="10002808" name="inst_D24F1EFF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="448" w="32" h="32" xo="0" yo="64" id="10002809" name="inst_46BA4669" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="768" y="512" w="32" h="32" xo="0" yo="64" id="10002810" name="inst_51766E5E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="64" y="0" w="32" h="32" xo="64" yo="0" id="10002811" name="inst_BB6B4893" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="64" y="576" w="32" h="32" xo="64" yo="0" id="10002812" name="inst_8F28880D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="128" y="576" w="32" h="32" xo="64" yo="0" id="10002813" name="inst_34ACE025" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="192" y="576" w="32" h="32" xo="64" yo="0" id="10002814" name="inst_000398E8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="256" y="576" w="32" h="32" xo="64" yo="0" id="10002815" name="inst_D775EEB5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="320" y="576" w="32" h="32" xo="64" yo="0" id="10002816" name="inst_91F3F13D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="384" y="576" w="32" h="32" xo="64" yo="0" id="10002817" name="inst_85F8ACAA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="448" y="576" w="32" h="32" xo="64" yo="0" id="10002818" name="inst_7CF3E2CF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="512" y="576" w="32" h="32" xo="64" yo="0" id="10002819" name="inst_E28DE568" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="576" y="576" w="32" h="32" xo="64" yo="0" id="10002820" name="inst_566E9509" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="640" y="576" w="32" h="32" xo="64" yo="0" id="10002821" name="inst_65191D3D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="704" y="576" w="32" h="32" xo="64" yo="0" id="10002822" name="inst_CADD9BBA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="704" y="0" w="32" h="32" xo="64" yo="0" id="10002823" name="inst_79FE8E9A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="640" y="0" w="32" h="32" xo="64" yo="0" id="10002824" name="inst_5AA72536" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="576" y="0" w="32" h="32" xo="64" yo="0" id="10002825" name="inst_79C11941" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="512" y="0" w="32" h="32" xo="64" yo="0" id="10002826" name="inst_0B085EF7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="448" y="0" w="32" h="32" xo="64" yo="0" id="10002827" name="inst_6AA1C7B0" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="384" y="0" w="32" h="32" xo="64" yo="0" id="10002828" name="inst_1E3102FC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="320" y="0" w="32" h="32" xo="64" yo="0" id="10002829" name="inst_04152B23" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="256" y="0" w="32" h="32" xo="64" yo="0" id="10002830" name="inst_ADF962A5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="192" y="0" w="32" h="32" xo="64" yo="0" id="10002831" name="inst_9D033727" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bNeuroTilesNew" x="128" y="0" w="32" h="32" xo="64" yo="0" id="10002832" name="inst_5887FE11" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-  </tiles>
+  <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>

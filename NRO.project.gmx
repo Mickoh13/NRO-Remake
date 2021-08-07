@@ -280,6 +280,8 @@
     <sprites name="killers">
       <sprite>sprites\sprSpikeUp</sprite>
       <sprite>sprites\sprSpikeRight</sprite>
+      <sprite>sprites\sprUkraineSpike</sprite>
+      <sprite>sprites\sprUkraineCherryGray</sprite>
       <sprite>sprites\sprSpikeLeft</sprite>
       <sprite>sprites\sprSpikeDown</sprite>
       <sprite>sprites\sprMiniUp</sprite>
@@ -328,15 +330,25 @@
     </sprites>
     <sprite>sprites\sprFlashBorder</sprite>
     <sprite>sprites\sprCherryLeeho</sprite>
+    <sprite>sprites\sprCherryLeehotic</sprite>
+    <sprite>sprites\sprCherryLeeglow</sprite>
+    <sprite>sprites\sprCherryLeeglowtic</sprite>
     <sprite>sprites\sprCherryLeehoMIDDLE</sprite>
     <sprite>sprites\sprDarkLeeho</sprite>
     <sprite>sprites\sprCherryNothing</sprite>
+    <sprite>sprites\sprCherryNull</sprite>
     <sprite>sprites\sprUkraineMain</sprite>
     <sprite>sprites\sprUkraineCherries</sprite>
-    <sprite>sprites\sprite76</sprite>
     <sprite>sprites\sprUkraineGlow</sprite>
     <sprite>sprites\sprLeehoCyan</sprite>
     <sprite>sprites\sprInvertCircleMask</sprite>
+    <sprite>sprites\sprNeuroTiles</sprite>
+    <sprite>sprites\sprNeuroBlockCorner</sprite>
+    <sprite>sprites\sprNeuroBlockHorzLine</sprite>
+    <sprite>sprites\sprNeuroBlockHorz</sprite>
+    <sprite>sprites\sprNeuroBlockVertLine</sprite>
+    <sprite>sprites\sprNeuroBlockVert</sprite>
+    <sprite>sprites\sprNeuroTilesDark</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bAllTiles</background>
@@ -346,6 +358,7 @@
     <background>background\bNeuroTilesNew</background>
     <background>background\bNeuroTilesDark</background>
     <background>background\bNeuroBG</background>
+    <background>background\background7</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -531,9 +544,23 @@
         <object>objects\objCherryStar1</object>
       </objects>
       <objects name="pre-assault">
+        <object>objects\objCherrySpraySpiral</object>
         <object>objects\objCherrySpray3</object>
+        <object>objects\objCherrySpike</object>
+        <object>objects\objCherrySpikeTrail</object>
+      </objects>
+      <objects name="assault">
+        <object>objects\objCherryAssault</object>
+        <object>objects\objCherrySpiral</object>
+        <object>objects\objCherrySpiralTrail</object>
       </objects>
     </objects>
+    <object>objects\objNeuroBlock</object>
+    <object>objects\objNeuroCornerBlock</object>
+    <object>objects\objNeuroBlockHorzLine</object>
+    <object>objects\objNeuroBlockHorz</object>
+    <object>objects\objNeuroBlockVertLine</object>
+    <object>objects\objNeuroBlockVert</object>
   </objects>
   <rooms name="rooms">
     <rooms name="init">

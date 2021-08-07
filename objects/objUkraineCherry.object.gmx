@@ -3,7 +3,7 @@
   <spriteName>sprUkraineCherries</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>11</depth>
   <persistent>0</persistent>
   <parentName>objPlayerKiller</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -96,7 +96,7 @@ nDir += dirSpin;
 
 x = 400 + nLength*dsin(nDir+dirSpin);
 y = 168 + nLength*dcos(nDir+dirSpin);
-UkrAlpha = min(UkrAlpha+0.0075,1);
+UkrAlpha = min(UkrAlpha+0.005,1);
 wAlpha = max(wAlpha-0.0025,0);
 }
 </string>
@@ -124,8 +124,11 @@ wAlpha = max(wAlpha-0.0025,0);
             <string>draw_set_blend_mode(bm_add);
 if (wAlpha)
 draw_sprite_ext(sprUkraineGlow,0,x,y,1.0,1.0,0,c_white,wAlpha);
+if (objNeuro.invertScale &lt; 0.2)
+{
 draw_sprite_part_ext(sprUkraineGlow,2,0,0,sprite_width,sprite_height-clamp(152-y,0,38),x-18,y-19,1.0,1.0,c_white,UkrAlpha);
 draw_sprite_part_ext(sprUkraineGlow,1,0,0,sprite_width,sprite_height-clamp(y-152,0,38),x-18,y-19,1.0,1.0,c_white,UkrAlpha);
+}
 draw_set_blend_mode(bm_normal);
 if (wAlpha)
 draw_sprite_ext(sprUkraineCherries,0,x,y,1.0,1.0,0,c_white,wAlpha);

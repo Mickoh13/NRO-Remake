@@ -36,6 +36,7 @@ rFric = 0;
 xx = x;
 yy = y;
 scaleRandom = 1;
+aDir = random(360);
 </string>
           </argument>
         </arguments>
@@ -64,8 +65,8 @@ else
 {
 rSpd += rFric;
 rLength += rSpd;
-x = xx + rLength*dsin(rDir);
-y = yy + rLength*dcos(rDir);
+x = lerp(x,xx - rLength*dcos(rDir) +16*dsin(y+aDir),0.25);
+y = lerp(y,yy + rLength*dsin(rDir) +16*dcos(x+aDir),0.25);
 }
 image_xscale = lerp(image_xscale,scaleRandom,random_range(0.05,0.2));
 image_xscale = image_yscale;

@@ -58,6 +58,12 @@ UkrYY = 0;
 ukraineAng = 0;
 ukraineSwitch = -1;
 invertScale = 0;
+invertTag = 0;
+invertAdd = 0.035;
+switchAngle = choose(-1,1);
+leGrov = 0;
+leGrovDir = 0;
+spiralDire = random(360);
 
 for (var i = 0; i &lt;= 4; i++)
 {
@@ -195,8 +201,8 @@ done = true;
 }
 with objCherry
 {
-speed = random_range(9,13);
-direction += random_range(-15,15);
+speed = random_range(6,12);
+direction += random_range(-30,30);
 done = true;
 }
 }
@@ -205,9 +211,9 @@ done = true;
 if ((t &gt; 94 &amp;&amp; t &lt; 234) || (t &gt; 375 &amp;&amp; t &lt; 517)) &amp;&amp; ((t-109) mod 9) = 0
 {
 if t &lt; 443
-blowAmount = irandom_range(1,2);
+blowAmount = irandom_range(2,3);
 else
-blowAmount = irandom_range(3,4);
+blowAmount = irandom_range(4,5);
 repeat(blowAmount)
 {
 aBlow = instance_create(random_range(380,420),random_range(292,316),objCherry)
@@ -229,7 +235,7 @@ with objCherryBounce
 {
 if !(done)
 {
-speed = random_range(7,12);
+speed = random_range(6,11);
 angleAdd = angleAdd * random_range(1.3,1.5);
 done = true;
 image_alpha = 1
@@ -241,7 +247,7 @@ if !(done)
 {
 alpha = false;
 image_alpha = 1;
-speed = random_range(8,13);
+speed = random_range(7.5,12);
 direction = random(360);
 done = true;
 }
@@ -563,7 +569,7 @@ active = true;
 friction = 0;
 gravity = 1.255;
 gravity_direction = 270;
-rAmnt = 2;
+rAmnt = 3;
 }
 }
 
@@ -816,7 +822,7 @@ fSpd = 12;
 }
 active = true;
 wAlpha = 0;
-image_alpha = 0.8;
+image_alpha = 0.5;
 }
 fallInst++;
 }
@@ -842,7 +848,7 @@ global.ringSquareInd++;
 
 with objCherrySquares2
 {
-image_alpha = 0.85;
+image_alpha = 0.35;
 speed = 0;
 active = true;
 if !(done)
@@ -854,12 +860,12 @@ done = true;
 }
 xRadius = 400+random_range(120,136)*dsin(rAngle+other.rAngleSquare);
 yRadius = 128+random_range(120,136)*dcos(rAngle+other.rAngleSquare);
-xPos = lerp(x,xRadius,random_range(0.5,0.625));
-yPos = lerp(y,yRadius,random_range(0.5,0.625));
+xPos = lerp(x,xRadius,random_range(0.4,0.6));
+yPos = lerp(y,yRadius,random_range(0.4,0.6));
 xx = xPos;
 yy = yPos;
-lerpRange1 = 0.25;
-lerpRange2 = 0.4;
+lerpRange1 = 0.15;
+lerpRange2 = 0.25;
 }
 }
 }
@@ -881,8 +887,8 @@ with objCherrySquares2
 {
 xx = xRadius;
 yy = yRadius;
-lerpRange1 = 0.325;
-lerpRange2 = 0.675;
+lerpRange1 = 0.2;
+lerpRange2 = 0.4;
 }
 }
 
@@ -952,7 +958,7 @@ state = -1;
 }
 }
 
-if t &gt; 2047 &amp;&amp; t &lt; 2183 &amp;&amp; ((t-2047) mod 7) = 0
+if t &gt; 2047 &amp;&amp; t &lt; 2183 &amp;&amp; ((t-2047) mod 7) = 0 &amp;&amp; !(t = 2116)
 {
 for (var jj = 0; jj &lt; 360; jj += 90)
 {
@@ -1000,7 +1006,28 @@ if t &gt; 2186 &amp;&amp; (t mod 3) = 0 &amp;&amp; t &lt; 2256
 flashAlpha = 0.425;
 
 if t = 2256
+{
+global.spikeInd = irandom(11);
 instance_destroy(objCherrySpray3);
+with objNeuroBlock
+{
+blackAlpha = 1;
+alpha = 1;
+}
+}
+
+if t = 2307
+{
+with objCherrySpike
+alarm[0] = irandom_range(1,18);
+}
+
+if t &gt; 2290 &amp;&amp; t &lt; 2311
+{
+with objNeuroBlock
+blackAlpha = max(blackAlpha-0.05,0);
+background_alpha[1] = min(background_alpha[1]+0.02,0.2);
+}
 
 if t = 2320
 instance_create(0,0,objInvert);
@@ -1026,15 +1053,143 @@ instance_create(0,0,objInvert);
             <kind>1</kind>
             <string>///4. Assault
 
+if t = 2327
+{
+repeat(90)
+{
+a360 = instance_create(400,168,objCherry);
+a360.direction = random(360);
+a360.speed = random_range(6,12);
+a360.image_xscale = random_range(0.5,1);
+a360.image_yscale = a360.image_xscale;
+a360.gravity_direction = 270;
+a360.gravity = random_range(0.075,0.1);
+a360.depth = 9.5;
+a360.glow = true;
+}
+}
+
+if t &gt; 2347 &amp;&amp; (t mod 8) = 0 &amp;&amp; t &lt; 3148
+{
+aLeehotic = instance_create(choose(random_range(-60,-40),random_range(860,890)),random_range(48,560),objCherryAssault);
+aLeehotic.gravity = leGrov;
+aLeehotic.gravity_direction = leGrovDir;
+}
+
 if t = 2365
 with objUkraineCherry
 doTrails = false;
 
-if (t &gt; 2327 &amp;&amp; t &lt; 2347) || (t &gt; 2467 &amp;&amp; t &lt; 2487)
-invertScale = lerp(invertScale,3,0.1);
+if t = 2397 || t = 2467 || t = 2537 || t = 2607 || t = 2677
+switchAngle = switchAngle * -1;
 
-if (t &gt; 2397 &amp;&amp; t &lt; 2467) || (t &gt; 2537)
-invertScale = lerp(invertScale,0,0.2);
+if (t &gt; 2327 &amp;&amp; t &lt; 2347) || (t &gt; 2467 &amp;&amp; t &lt; 2487) || (t &gt; 2607 &amp;&amp; t &lt; 2627) || (t &gt; 2902 &amp;&amp; t &lt; 2932) || (t &gt; 3029 &amp;&amp; t &lt; 3060)
+invertScale = lerp(invertScale,3,0.02);
+
+if (t &gt; 2397 &amp;&amp; t &lt; 2467) || (t &gt; 2537 &amp;&amp; t &lt; 2607) || (t &gt; 2677 &amp;&amp; t &lt; 2747) || (t &gt; 2954 &amp;&amp; t &lt; 3024) || (t &gt; 3098 &amp;&amp; t &lt; 3160)
+invertScale = lerp(invertScale,0,0.125);
+
+if t = 2571
+switchAngle = choose(-1,1);
+
+if t = 2541
+{
+with objCherryAssault
+{
+gravity = random_range(0.1,0.25);
+gravity_direction = random_range(265,275);
+}
+}
+
+if t = 2747
+{
+leGrov = 0.2;
+leGrovDir = 90;
+with objCherryAssault
+{
+gravity = 0.2;
+gravity_direction = 90;
+}
+}
+
+if t = 2817 || t = 3098
+{
+leGrov = 0.15;
+leGrovDir = 270;
+with objCherryAssault
+{
+gravity = 0.15;
+gravity_direction = 270;
+}
+}
+
+if t = 2880
+{
+leGrov = 0;
+leGrovDir = 0;
+}
+if (t &gt; 2747 &amp;&amp; t &lt;= 2885)
+{
+if ((t-2748) mod 3) = 0 &amp;&amp; t &lt; 2830
+{
+spiralDire = random(360);
+for(var ij = 0; ij &lt; 360; ij += 180)
+{
+aWhat = instance_create(400,168,objCherrySpiral);
+aWhat.aDir = ij + spiralDire;
+aWhat.aCurve = -1.5
+}
+spiralDire = random(360);
+for(var ji = 0; ji &lt; 360; ji += 180)
+{
+aWhat = instance_create(400,168,objCherrySpiral);
+aWhat.aDir = ji + spiralDire + 90;
+aWhat.aCurve = 1.5;
+}
+}
+invertScale += invertAdd;
+if ((t-2754) mod 6) = 0 &amp;&amp; t &lt; 2817
+{
+invertTag++;
+with objInvert
+{
+kak = other.invertTag;
+scaleGet[other.invertTag] = objNeuro.invertScale;
+}
+}
+}
+
+if t &gt; 2797 &amp;&amp; t &lt; 2817
+{
+invertAdd = max(invertAdd-0.0019,0)
+}
+
+if t &gt;= 2817 &amp;&amp; t &lt;= 2887
+invertAdd -= 0.000885;
+
+if t = 2886
+{
+with objInvert
+{
+kak = 1;
+}
+}
+
+if t = 2883
+{
+repeat(irandom_range(130,170))
+{
+a360 = instance_create(400,168,objCherry);
+a360.direction = random(360);
+a360.speed = random_range(0.25,12);
+a360.image_xscale = random_range(0.4,0.95);
+a360.image_yscale = a360.image_xscale;
+a360.depth = 9.5;
+a360.glow = true;
+a360.dirCur = choose(-1,1);
+a360.curvePoint = true;
+}
+}
 </string>
           </argument>
         </arguments>

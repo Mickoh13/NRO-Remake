@@ -89,7 +89,7 @@ for(i = 0; i &lt; 360; i += 360/15){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>repeat(choose(1,1,1,rAmnt,rAmnt))
+            <string>repeat(choose(rAmnt,2,2,rAmnt,rAmnt))
 {
 aSpray = instance_create(x,y,objCherrySpray2);
 if !(active)
@@ -100,10 +100,10 @@ aSpray.speed = random_range(6,10);
 else
 {
 aSpray.rDir = random(360);
-aSpray.rSpd = random_range(4.75,8.5);
-aSpray.rFric = 0.3;
+aSpray.rSpd = random_range(4.5,8);
+aSpray.rFric = random_range(0.1,0.25);
 }
-aSpray.image_xscale = random_range(0.35,0.9);
+aSpray.image_xscale = random_range(0.35,0.85);
 aSpray.image_yscale = aSpray.image_xscale;
 aSpray.active = active;
 if !(active)
